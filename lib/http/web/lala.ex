@@ -1,8 +1,7 @@
 defmodule Lala.Event do
   @behaviour Access
 
-  @lala [
-    eid: 0,
+  defstruct eid: 0,
     name: "",
     count: 0,
     max_consume: 0,
@@ -12,17 +11,8 @@ defmodule Lala.Event do
     seventy_five: 0,
     ninty: 0,
     ninty_five: 0
-  ]
 
-  defstruct @lala
-
-  def fetch(struc, key) do
-    {:ok, Map.get(struc, key)}
-  end
-
-  def pop(struc, key) do
-    {Map.get(struc, key), Map.put(struc, key, Keyword.get(@lala, key))}
-  end
+  defdelegate [fetch(t, key), pop(data, key), get_and_update(t, key, list)], to: Map
 
 end
 
