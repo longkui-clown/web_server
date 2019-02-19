@@ -1,0 +1,1 @@
+tar zcf my3d_0100_`date +%Y%m%d%H%M%S`.tar.gz ./my3d ./tools
